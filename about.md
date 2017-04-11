@@ -7,6 +7,6 @@ permalink: /about/
 
 相關資料:
 
-- https://github.com/javatican/gj_java_basic
-- https://github.com/javatican/gj_java_adv1
-- https://github.com/javatican/gj_java_adv2
+- [Java 先修](https://github.com/javatican/gj_java_basic)
+- [Java 基礎](https://github.com/javatican/gj_java_adv1)
+- [Java OCPJP](https://github.com/javatican/gj_java_adv2)
