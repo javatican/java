@@ -6,8 +6,9 @@ categories: java
 ---
 ## 2-1 使用命令列編譯並執行Java程式
 
-1. 準備一個java原始檔, 例如: `CalcAverage.java`, 內容如下
-```
+1. 準備一個java原始檔, 例如: `CalcAverage.java`, 內容如下:
+
+```java
 package myjava;
 
 public class CalcAverage {
@@ -22,30 +23,42 @@ public class CalcAverage {
     }
 }
 ```
+
 2. 將`CalcAverage.java`儲存到`c:\java_source\myjava`目錄下
+
 3. 將`工作目錄`轉移到`c:\java_source`目錄下
+
 ```
 cd c:\java_source 
 ```
+
 4. 編譯(`javac`)原始檔, 產生`.class`檔(也就是`bytecode`檔)
+
 ```
 javac myjava\CalcAverage.java
 
 ```
+
 5. 檢視一下`c:\java_source\myjava`目錄下是否有產生`CalcAverage.class`
+
 6. 執行(`java`)程式
+
 ```
 java myjava.CalcAverage
 ```
 
 備註: 
 - 編譯時, 也可以將產生的.class檔放到不同的目錄, 例如`c:\java_class`目錄下, 可以使用`-d`的選項
+
 ```
 javac -d c:\java_class myjava\CalcAverage.java
 
 ```
+
 - 檢視一下`c:\java_class\myjava`目錄下是否有產生`CalcAverage.class`
+
 - 執行程式, 必須使用`-cp`的選項, 告訴解譯器.class所在的路徑
+
 ```
 java -cp c:\java_class myjava.CalcAverage
 ```
