@@ -55,7 +55,7 @@ public class CustomerTest {
         cust2.displayCustomerInfo();
 ```
 
-## 6-2 使用String及StringBuffer類別
+## 6-2 使用String及[StringBuffer類別](https://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html)
 
 1. String是immutable(唯讀的, 不可改變值)的字串物件.
 1. StringBuilder是mutable(可以改變值)的字串物件, 其提供一些可以改變內容的方法, 例如:
