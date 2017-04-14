@@ -89,7 +89,7 @@ public class ClockTest {
 }
 ```
 
-## 使用switch 複合敘述
+## 7-2 使用switch 複合敘述
 
 ```java
 public class Month {
