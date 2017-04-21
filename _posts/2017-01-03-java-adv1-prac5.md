@@ -36,6 +36,10 @@ public class CustomerTest {
 
 ```
 ## 5-2 練習使用運算子及資料轉型
+這個練習中共有三個部份, 使用算術運算子及轉型運算子. 
+注意一些運算有可能會發生溢位(overflow)問題, 必須做資料轉型.
+
+### 第一部份: 計算年紀, 分別以天, 分, 秒, 及毫秒顯示. 
 
 ```java
 public class Person {
@@ -80,6 +84,8 @@ public class PersonTest {
 }
 ```
 
+### 第二部份: 根據單價及數量, 計算總價格 
+
 ```java
 public class Order {
 
@@ -88,7 +94,7 @@ public class Order {
     public int itemPrice = 555_500;
 
     public void calculateTotal() {
-        orderValue =  (long)itemQuantity *  itemPrice;
+        orderValue =  (long)itemQuantity *  itemPrice; //1
         System.out.println("Order total: " + orderValue);
     }
 }
@@ -112,6 +118,9 @@ public class OrderTest {
 
 ```
 
+
+### 第三部份: 轉換華氏溫度為攝氏溫度
+ 
 ```java
 public class Temperature {
 
