@@ -4,7 +4,9 @@ title:	Java基礎 - Practice 7
 date:	2017-01-06
 categories: java
 ---
-## 7-1 使用if/else 複合敘述
+## 7-1 使用if/else 區塊敘述
+
+這個練習分成兩的部份. 第一部份將使用if/else區塊敘述, 根據一個變數dayNumber(範圍從1到7)的值, 列印星期一到星期日.
 
 ```java
 public class DateTwo {
@@ -48,8 +50,9 @@ public class DateTwoTest {
 }
 ```
 
+第二部份同樣使用if/else區塊, 根據時間值來顯示早上, 下午, 晚上或凌晨.
+
 1. 時間以整數的方式指定, 例如400代表04:00, 1505代表15:05
-1. 根據時間值, 顯示早上, 下午, 晚上或凌晨.
 1. 不需要檢核時間是否在1-2400之外.
 1. 因為0開頭的數字為8位元表示法, 所以0800不是正確的整數形式, 必須以800形式指定.
 
@@ -89,7 +92,9 @@ public class ClockTest {
 }
 ```
 
-## 7-2 使用switch 複合敘述
+## 7-2 使用switch 區塊敘述
+
+利用switch case區塊敘述, 根據一個整數變數monthNumber的值(1到12), 列印1月到12月.
 
 ```java
 public class Month {
