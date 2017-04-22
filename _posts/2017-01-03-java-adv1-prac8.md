@@ -6,8 +6,8 @@ categories: java
 ---
 ## 8-1 使用陣列元素為基本型態資料的一維陣列
 
-使用一維陣列來儲存DukeChoice公司員工的年度休假日, 根據在公司工作的年資. 
-陣列長度為7, 索引值範圍0到6. 在存取陣列時不能使用索引值大於或等於7. 
+- 使用一維陣列來儲存DukeChoice公司員工的年度休假日. 休假日乃根據員工在公司工作的年資來計算. 
+- 使用陣列長度為7, 索引值範圍0到6. 在存取陣列時不能使用索引值大於或等於7. 
 
 ```java
 public class VacationScale {
@@ -57,8 +57,11 @@ public class VacationScaleTest {
 
 ## 8-2 使用ArrayList
 
-建立`ArrayList`物件, 利用`add()`把String物件加入到其中. 列印ArrayList物件內容(`System.out.println()`)及其元素個數(`size()`). 
-利用`remove()`來移除某個元素. 利用`add(int index, Object obj)`在某一個索引值位置放入新元素.
+- 建立`ArrayList`物件
+- 利用`add()`把String物件加入到其中. 
+- 利用`System.out.println()`, 列印ArrayList物件內容及其元素個數(`size()`)
+- 利用`remove()`來移除某個元素. 
+- 利用`add(int index, Object obj)`在某一個索引值位置放入新元素.
 
 ```java
 import java.util.ArrayList;
@@ -105,6 +108,11 @@ public class NameListTest {
 ```
 
 ## 8-3 使用main()方法參數(args陣列)
+
+寫一個猜數字的遊戲. 從命令列讀入一個整數的輸入值(1-5), 顯示是否猜對等訊息.
+- 使用String中的compareTo()來判斷args[0]是否為"help", 如果是, 顯示如何執行程式的方式.
+- 使用`(int) (Math.random() * 5) + 1`來產生1-5的整數亂數值.
+- 使用`Integer.parseInt(args[0])`來將args[0]從String型態轉成int
 
 ```java
 import java.util.Random;
