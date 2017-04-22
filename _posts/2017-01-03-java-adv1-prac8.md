@@ -4,7 +4,10 @@ title:	Java基礎 - Practice 8
 date:	2017-01-07
 categories: java
 ---
-## 8-1 使用基本型態一維陣列
+## 8-1 使用陣列元素為基本型態資料的一維陣列
+
+使用一維陣列來儲存DukeChoice公司員工的年度休假日, 根據在公司工作的年資. 
+陣列長度為7, 索引值範圍0到6. 在存取陣列時不能使用索引值大於或等於7. 
 
 ```java
 public class VacationScale {
@@ -53,6 +56,9 @@ public class VacationScaleTest {
 ```
 
 ## 8-2 使用ArrayList
+
+建立`ArrayList`物件, 利用`add()`把String物件加入到其中. 列印ArrayList物件內容(`System.out.println()`)及其元素個數(`size()`). 
+利用`remove()`來移除某個元素. 利用`add(int index, Object obj)`在某一個索引值位置放入新元素.
 
 ```java
 import java.util.ArrayList;
