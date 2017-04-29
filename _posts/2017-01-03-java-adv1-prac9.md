@@ -6,7 +6,7 @@ categories: java
 ---
 ## 9-1 使用for迴圈
 
-建立Counter類別, 使用for迴圈來列印一序列的數字
+建立Counter類別, 定義一個final的常數MAX_COUNT=100, 使用for迴圈來列印1到MAX_COUNT5中可以為12所整除的數字.
 
 ```java
 public class Counter {
@@ -125,6 +125,8 @@ public class ChallengeSequenceTest {
 ## 9-4 使用for迴圈來處理ArrayList物件
 
 - 使用傳統的for迴圈來顯示ArrayList物件中的values:
+- `size()`: 取得ArrayList物件中的元素個數
+- `get()`: 取得某一個索引值位置的元素
 
 ```java
 import java.util.ArrayList;

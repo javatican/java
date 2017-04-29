@@ -110,7 +110,7 @@ public class NameListTest {
 ## 8-3 使用main()方法參數(args陣列)
 
 寫一個猜數字的遊戲. 從命令列讀入一個整數的輸入值(1-5), 顯示是否猜對等訊息.
-- 使用String中的compareTo()來判斷args[0]是否為"help", 如果是, 顯示如何執行程式的方式.
+- 使用String中的`compareTo()`來判斷args[0]是否為"help", 如果是, 顯示如何執行程式的方式.
 - 使用`(int) (Math.random() * 5) + 1`來產生1-5的整數亂數值.
 - 使用`Integer.parseInt(args[0])`來將args[0]從String型態轉成int
 
