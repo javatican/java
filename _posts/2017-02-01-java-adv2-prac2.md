@@ -13,8 +13,8 @@ categories: java
 
 ### 步驟一: 建立Employee類別
 
-1. 建立com.example.domain套件
-1. 建立Employee類別, 包含empId, name, ssn, salary等成員變數
+1. 建立`com.example.domain`套件
+1. 建立`Employee`類別, 包含`empId, name, ssn, salary`等成員變數
 1. 定義預設建構子
 1. 增加getter, setter等方法
 
@@ -69,7 +69,7 @@ public class Employee {
 
 ### 步驟二: 建立EmployeeTest類別
 
-1. 建立Employee物件, 放在com.example套件
+1. 建立`Employee`物件, 放在`com.example`套件
 1. 呼叫setter方法設定該物件的成員變數值
 1. 列印該物件的成員變數
 
