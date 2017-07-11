@@ -114,14 +114,13 @@ public class ParenMatcher {
                 case '(':
                     stack.push(c);
                     break;
-                case ')': {
+                case ')': 
                     if (stack.size() > 0) {
                         stack.pop();
                     } else {
                         return false;
                     }
                     break;
-                }
             }
         }
         if (stack.size() > 0) {
@@ -161,7 +160,130 @@ public class ParenMatcher {
 
 計算shirts的inventory(庫存數量), 使用Comparator物件並根據description或inventory來排序
 
-### 步驟一: 更新SortShirtByCount
+### 步驟一: 檢視Shirt類別及其實作的InventoryCount界面, 以及代表交易的DukeTransaction類別
+
+```java
+package com.example.generics;
+
+public interface InventoryCount {
+
+    public long getCount();
+
+    public void addItems(long count);
+
+    public void removeItems(long count);
+}
+```
+
+```java
+package com.example.generics;
+
+public class Shirt implements InventoryCount {
+
+    private String id = "";
+    private String description = "";
+    private String color = "";
+    private String size = "";
+    private long count = 0;
+
+    private Shirt() {
+    }
+
+    public Shirt(String id, String description, String color, String size) {
+        this.id = id;
+        this.description = description;
+        this.color = color;
+        this.size = size;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(256);
+        sb.append("Shirt ID: ").append(this.getId()).append("\n");
+        sb.append("Description: ").append(this.getDescription()).append("\n");
+        sb.append("Color: ").append(this.getColor()).append("\n");
+        sb.append("Size: ").append(this.getSize()).append("\n");
+        sb.append("Inventory: ").append(this.getCount()).append("\n");
+
+        return sb.toString();
+    }
+
+    @Override
+    public long getCount() {
+        return count;
+    }
+
+    @Override
+    public void addItems(long count) {
+        this.count = this.count + count;
+    }
+
+    @Override
+    public void removeItems(long count) {
+        if ((this.count - count) > 0) {
+            this.count = this.count - count;
+        } else {
+            System.out.println("Negative inventory number error.");
+        }
+    }
+}
+```
+
+```java
+package com.example.generics;
+
+public class DukeTransaction {
+
+    private String productID = "";
+    private String transactionType = "";
+    private long count = 0;
+
+    private DukeTransaction() {
+    }
+
+    private DukeTransaction(String productID, String transactionType, long count) {
+        this.productID = productID;
+        this.transactionType = transactionType;
+        this.count = count;
+    }
+
+    public static DukeTransaction createTransaction(String productID, String transactionType, long count) {
+        DukeTransaction newTransaction = new DukeTransaction(productID, transactionType,
+                count);
+        return newTransaction;
+    }
+
+    public String getProductID() {
+        return this.productID;
+    }
+
+    public String getTransactionType() {
+        return this.transactionType;
+    }
+
+    public long getCount() {
+        return this.count;
+    }
+}
+```
+
+### 步驟二: 更新SortShirtByCount
 1. 實作Comparator界面的類別, 根據庫存數來排序
 
 ```java
@@ -171,16 +293,26 @@ import java.util.Comparator;
 
 public class SortShirtByCount implements Comparator<Shirt> {
 
+    @Override
     public int compare(Shirt s1, Shirt s2) {
-        Long c1 = new Long(s1.getCount());
-        Long c2 = new Long(s2.getCount());
 
+        Long c1 = s1.getCount();
+        Long c2 = s2.getCount();
         return c1.compareTo(c2);
+
+	/*
+	if(s1.getCount()>s2.getCount()){
+            return 1;
+        } else if (s1.getCount()==s2.getCount()){
+            return 0;
+        } else{
+            return -1;
+        } */
     }
 }
 ```
 
-### 步驟二: 更新SortShirtByDesc
+### 步驟三: 更新SortShirtByDesc
 1. 實作Comparator界面的類別, 根據description來排序
 
 ```java
@@ -195,7 +327,7 @@ public class SortShirtByDesc implements Comparator<Shirt> {
     }
 }
 ```
-### 步驟三: 更新TestItemCounter類別
+### 步驟四: 更新TestItemCounter類別
 1. 利用迴圈, 更新polos Map物件中的shirt物件的庫存數
 1. 列印shirts, 根據description排序
 1. 列印shirts, 根據庫存數排序
@@ -293,133 +425,6 @@ public class TestItemCounter {
     }
 } 
 ```
-
-其他原始檔如下: 
-
-```java
-package com.example.generics;
-
-public interface InventoryCount {
-
-    public long getCount();
-
-    public void addItems(long count);
-
-    public void removeItems(long count);
-}
-
-```
-
-```java
-package com.example.generics;
-
-public class Shirt implements InventoryCount {
-
-    private String id = "";
-    private String description = "";
-    private String color = "";
-    private String size = "";
-    private long count = 0;
-
-    private Shirt() {
-    }
-
-    ;
-
-    public Shirt(String id, String description, String color, String size) {
-        this.id = id;
-        this.description = description;
-        this.color = color;
-        this.size = size;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder(256);
-        sb.append("Shirt ID: ").append(this.getId()).append("\n");
-        sb.append("Description: ").append(this.getDescription()).append("\n");
-        sb.append("Color: ").append(this.getColor()).append("\n");
-        sb.append("Size: ").append(this.getSize()).append("\n");
-        sb.append("Inventory: ").append(this.getCount()).append("\n");
-
-        return sb.toString();
-    }
-
-    @Override
-    public long getCount() {
-        return count;
-    }
-
-    @Override
-    public void addItems(long count) {
-        this.count = this.count + count;
-    }
-
-    @Override
-    public void removeItems(long count) {
-        if ((this.count - count) > 0) {
-            this.count = this.count - count;
-        } else {
-            System.out.println("Negative inventory number error.");
-        }
-    }
-}
-```
-
-
-```java
-package com.example.generics;
-
-public class DukeTransaction {
-
-    private String productID = "";
-    private String transactionType = "";
-    private long count = 0;
-
-    private DukeTransaction() {
-    }
-
-    private DukeTransaction(String productID, String transactionType, long count) {
-        this.productID = productID;
-        this.transactionType = transactionType;
-        this.count = count;
-    }
-
-    public static DukeTransaction createTransaction(String productID, String transactionType, long count) {
-        DukeTransaction newTransaction = new DukeTransaction(productID, transactionType,
-                count);
-        return newTransaction;
-    }
-
-    public String getProductID() {
-        return this.productID;
-    }
-
-    public String getTransactionType() {
-        return this.transactionType;
-    }
-
-    public long getCount() {
-        return this.count;
-    }
-}
-```  
          
 :sweat_smile:
 
