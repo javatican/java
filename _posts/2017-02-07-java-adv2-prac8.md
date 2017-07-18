@@ -262,7 +262,7 @@ public class FindTextCmdLine {
 
 ### 步驟一: 更新SearchReplace類別
 
-1. 建立Pattern物件(`Pattern.compile("(<" + targetTag + ".*?>)(.*?)(</" + targetTag + ".*?>)")`), 準備將文字拆解成三個部份:
+1. 建立Pattern物件, 例如`Pattern.compile("(<" + targetTag + ".*?>)(.*?)(</" + targetTag + ".*?>)")`, 準備將文字拆解成三個部份:
   - 開始標籤
   - 內容
   - 結束標籤
@@ -300,7 +300,8 @@ public class SearchReplace {
             String value = "sentence";
             String line = "";
             int c = 1;
-            Pattern pattern1 = Pattern.compile("(<" + targetTag + ".*?>)(.*?)(</" + targetTag + ".*?>)");
+            Pattern pattern1 = Pattern.compile(
+		"(<" + targetTag + ".*?>)(.*?)(</" + targetTag + ".*?>)");
 
             while ((line = reader.readLine()) != null) {
                 Matcher m = pattern1.matcher(line);
