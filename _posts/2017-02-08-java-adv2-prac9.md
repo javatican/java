@@ -124,18 +124,18 @@ public interface EmployeeDAO extends AutoCloseable {
   - 宣告throws DAOException
   - 新增if判斷式, 確認新增動作不會覆蓋了已經存在的Employee物件. 若會覆蓋, 則丟出DAOException, 並且包含恰當的錯誤訊息.
   - 使用try-catch區塊, 捕捉ArrayIndexOutOfBoundsException. 在catch區塊中丟出DAOException, 並且包含恰當的錯誤訊息.
-1. update()方法: 
+2. update()方法: 
   - 宣告throws DAOException
   - 新增if判斷式, 確認所要update的Employee物件已經存在. 若不存在, 則丟出DAOException, 並且包含恰當的錯誤訊息.
   - 使用try-catch區塊, 捕捉ArrayIndexOutOfBoundsException. 在catch區塊中丟出DAOException, 並且包含恰當的錯誤訊息.
-1. delete()方法: 
+3. delete()方法: 
   - 宣告throws DAOException
   - 新增if判斷式, 確認所要delete的Employee物件已經存在. 若不存在, 則丟出DAOException, 並且包含恰當的錯誤訊息.
   - 使用try-catch區塊, 捕捉ArrayIndexOutOfBoundsException. 在catch區塊中丟出DAOException, 並且包含恰當的錯誤訊息.
-1. findById()方法: 
+4. findById()方法: 
   - 宣告throws DAOException
   - 使用try-catch區塊, 捕捉ArrayIndexOutOfBoundsException. 在catch區塊中丟出DAOException, 並且包含恰當的錯誤訊息.
-1. 新增close(), 覆蓋AutoCloseable界面的抽象方法. 
+5. 新增close(), 覆蓋AutoCloseable界面的抽象方法. 
   - 目前的實作類別`EmployeeDAOMemoryImpl`並未包含任何必須做關閉的資源, 因此僅輸出一些訊息即可, 
   - 這個方法主要會用在其他的實作類別. 例如使用資料庫的實作類別, 可以自動關閉資料庫的連結物件.
 
