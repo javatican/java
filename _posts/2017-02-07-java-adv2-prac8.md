@@ -150,12 +150,12 @@ public class Shirt {
 
 ### 步驟二: 更新FindText類別
 1. 建立型態為`Pattern`的成員變數`pattern`及`Matcher`型態的成員變數`m`
-1. 在`execute()`方法內, 利用`Pattern.compile()`來產生`Pattern`物件, 指定給成員變數`pattern`, 使用以下四種pattern
-  - <h4>標籤
+1. 在`execute()`方法內, 利用`Pattern.compile()`來產生`Pattern`物件, 指定給成員變數`pattern`, 使用以下四種pattern:
+  - `<h4>`標籤
   - to 英文字
   - 4個空白字元開頭
   - `<p`或`<d`開頭
-  - html結束的標籤(</XXX>), 例如`</div>`
+  - html結束的標籤(`</XXX>`), 例如`</div>`
 1. 在讀取文字每一行文字的迴圈中, 使用pattern.matcher()方法, 產生Matcher物件
   - 如果有找到符合的內容字串, 列印出行號及內容文字.
 
@@ -258,7 +258,7 @@ public class FindTextCmdLine {
 
 ## 8-3 利用regular expressions轉換html文件
 
-利用regular expressions將html文件(gettys.html)中的<p>標籤轉換成<span>標籤. 並且將class屬性值由line轉換成sentence. 將改變的結果列印出來
+利用regular expressions將html文件(gettys.html)中的`<p>`標籤轉換成`<span>`標籤. 並且將class屬性值由line轉換成sentence. 將改變的結果列印出來
 
 ### 步驟一: 更新SearchReplace類別
 
