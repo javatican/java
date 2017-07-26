@@ -70,8 +70,6 @@ public class Shirt {
     private Shirt() {
     }
 
-    ;
-
     public Shirt(String id, String description, String color, String size) {
         this.id = id;
         this.description = description;
